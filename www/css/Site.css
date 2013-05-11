@@ -1,0 +1,138 @@
+﻿.article
+{
+    /*height: auto;*/
+}
+
+.article .header
+{
+    font-size:18px;
+    text-align: justify;
+    white-space: normal;
+}
+
+.article .content
+{
+}
+.article .content img
+{
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float:left;
+    width:102px;
+    height:79px;
+    max-height:102px;
+    margin-right: 5px;
+}
+.article .content span
+{ 
+    text-align: left;
+    white-space: normal;
+    font-weight: normal;
+    font-size: 14px;
+    vertical-align: baseline;
+    /*font-family: Helvetica,​Arial,​sans-serif;*/
+    /*margin-right:10px;
+    width:100%;
+    top:0;
+    clear: both;*/
+}
+
+.myactive
+{
+    border: 1px solid silver;
+    /*
+    border : outset;
+    border-color: silver;
+        */
+    /*background-image: url('bullet_blue.ico')*/
+  
+
+      /*background-color:#5c91ca;*/
+}
+
+body {
+	/*font-size:12px;*/
+	-webkit-user-select:none;
+    -webkit-text-size-adjust:none;
+/*	-webkit-box-sizing:border-box;*/
+	/*font-family:helvetica;*/
+/*	padding-bottom:45px;	/*	This prevents the scroller to lock if the user swipes down outside of the screen.
+							 	NOT needed if in home screen mode. */
+}
+
+
+
+#PageLayoutCategories, #AjaxLayoutCategories {
+    width: auto;
+    height: 40px;
+    visibility: visible;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /*padding-bottom: 1px;*/
+    vertical-align: middle;
+    /*border: 0px solid red; */
+}
+#PageLayoutCategories ul, #AjaxLayoutCategories ul 
+{
+    width: 652px;/*ulSize = liSize * maximum + 25;*/
+    position: absolute;
+    white-space: nowrap;
+    margin:0;
+    padding:0;
+    height: 100%;
+    vertical-align: middle;
+    /*border: 0px solid red; */
+
+}
+
+#PageLayoutCategories ul li, #AjaxLayoutCategories ul li {
+    list-style: none;
+    display: inline-block;
+    width: 105px;   /* li width */
+    height: 78%;
+    margin:0;
+    padding:0;
+    vertical-align:middle;
+    /*border: 0px solid red; */
+}
+
+#PageLayoutCategories ul li a, #AjaxLayoutCategories ul li a
+{
+    display: block;
+    text-decoration: none;
+    vertical-align: middle;
+    text-align:center;
+
+    font-size: 16px;
+    font-weight: bold;
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+    padding-top:2px;
+    /*border: 0px solid red; */
+}
+
+
+    /* button background and borders color */
+
+    a[data-rel="back"] .ui-btn-corner-all {
+        /*border: 1px solid rgba(0,0,0, 0.4);
+        -webkit-border-radius: 5px;
+       background: -webkit-gradient(linear, left top, left bottom, from(#9fb3cc), to(#5b80ab), color-stop(0.5, #6b8bb2), color-stop(0.51, #597eaa));
+        -webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.25), inset 0 1px 1px rgba(0,0,0, 0.2);*/
+        overflow: visible;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        }
+
+
+/* make room for the point */
+a[data-rel="back"].ui-btn-left {
+	left: 3px;
+	}
+	a[data-rel="back"].ui-btn-left .ui-btn-corner-all {
+        padding-left: 25px !important;
+		}
