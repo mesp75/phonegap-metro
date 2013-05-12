@@ -89,7 +89,6 @@
     //fake calls
     datasource.prototype.getCategories = function (parameters)
     {
-        alert(this.categoriesList.length);
         return this.categoriesList;
     };
 
