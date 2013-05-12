@@ -6,6 +6,7 @@ $(document).bind("mobileinit", function () {
         hashListeningEnabled: true,    //default : true
         ajaxEnabled: false,             //default : true
         linkBindingEnabled: false,      //default : true
+        allowCrossDomainPages: true,
         pushStateEnabled: true         //default : true
         //minScrollBack : 0
     });
