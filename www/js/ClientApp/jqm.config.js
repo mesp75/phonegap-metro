@@ -12,6 +12,7 @@ $(document).bind("mobileinit", function () {
     });
     $.mobile.page.prototype.options.addBackBtn = false; //default : false
     $.mobile.page.prototype.options.domCache = true;
+    $.support.cors = true;
 });
 
 /*

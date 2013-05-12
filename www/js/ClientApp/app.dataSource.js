@@ -94,7 +94,7 @@
 
     datasource.prototype.getArticles = function (params)
     {
-        var crossUrl = 'http://tatchit-dev.com/metrogreece/api/Articles/GetArticles';
+        var crossUrl = 'http://www.tatchit-dev.com/metrogreece/api/Articles/GetArticles';
         var theUrl = 'http://localhost/metrogreeceWeb/api/Articles/GetArticles';
         /*
         var parameters = {
@@ -120,6 +120,7 @@
                     })
                     .fail(function ()
                     {
+                        alert('Error getting Articles!!!');
                     })
                     .always(function ()
                     {
