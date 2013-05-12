@@ -8,63 +8,15 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.3.1.css" />
         <link rel="stylesheet" type="text/css" href="css/Site.css" />
         <title>Metrogreece</title>
-        <!--<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>-->
-    </head>
-    <body>
-        <div data-role="page" id="mainPage" data-dom-cache="true" data-theme="c" >
-            <div data-role="header" data-position="fixed"  data-theme="b" data-tap-toggle="false">
-                <span style="text-align:center; display:block; height:36px;vertical-align: middle; padding-top:5px" 
-                        data-bind="click: showDefaultArticles">
-                    <img alt="MetroGreece Mobile App" 
-                        src="img/logo170.png" />
-                </span>
-                <div id="PageLayoutCategories">                
-                    <ul data-role="listview" data-inset="false" data-bind="foreach: urbanit_MG.ui.categories, refreshListViewOnce: true">                    
-                        <li data-bind="css: { 'ui-btn-active myactive': urbanit_MG.ui.isCategorySelected($data.CategoryID) }, click: $parent.goToCategory">
-                            <a data-bind="text: $data.Name"></a>
-                        </li>
-                    </ul>
-                </div>
-                <div data-role="navbar">
-	                <ul>
-		                <li style="font-size:10px; text-align:left" ><a data-bind="css: { 'ui-btn-active ui-state-persist': selectedNavbarButton() === 1 }, click: function () { goToNavbar(1); }">Προτεινόμενα</a></li>
-		                <li><a data-bind="css: { 'ui-btn-active ui-state-persist': selectedNavbarButton() === 2 }, click: function () { goToNavbar(2); }">Τελευταία</a></li>
-                        <li><a class="ui-li-has-count" data-bind="css: { 'ui-btn-active ui-state-persist': selectedNavbarButton() === 3 }, click: function () { goToNavbar(3); }"><span style="padding-right: 25px;">Αγαπημένα</span><span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="float:right;right:0;" data-bind="text: urbanit_MG.ui.favoritesCount"></span></a></li>
-	                </ul>
-                </div>
-            </div>
-            <div data-role="content">
-                <ul id="ArticleList" data-role="listview" data-bind="foreach: articles, refreshListViewOnChange: articles">
-                    <li class="article">
-                        <a data-bind="click: function () { $parent.goToArticle($data) }">
-                            <h3 class="header" data-bind="html: Title"></h3>
-                            <div class="content">
-                                <img data-bind="attr: { src: 'http://www.metrogreece.gr' + ImageFile }" alt=""/>
-                                <span data-bind="html: Description"></span>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:13px" data-bind="visible: !urbanit_MG.ui.loadingData() && articles().length > 0 && pageIndex() < 10 && selectedNavbarButton() < 3" >
-                    <a style="float:left" data-bind="click: nextPage" data-icon="arrow-d" data-inline="false" data-role="button" data-theme="c">Παλαιότερα </a>
-                </div>
-                <div data-bind="visible: !urbanit_MG.ui.loadingData() && articles().length == 0">
-                    Δεν υπάρχουν άρθρα
-                </div>
-            </div>
-            <div data-role="footer" data-theme="b" position="fixed" style="height:28px; font-size:14px;padding:0;margin:0;vertical-align:middle;text-align:center;height:100%">
-                <span>&copy; 2013 metrogreece.gr | All rights reserved | v1.1</span>
-            </div>
-        </div>
-        
-             
         <script src="js/Scripts/jquery-1.8.2.js"></script>
-        <script src="js/ClientApp/jqm.config.js"></script>
         <script src="js/Scripts/jquery.mobile-1.3.1.js"></script>
+        <script src="js/ClientApp/jqm.config.js"></script>
         <script src="js/Scripts/knockout-2.2.0.debug.js"></script>
         <script src="js/Scripts/knockout.mapping-latest.debug.js"></script>
+        <script src="js/ClientApp/ko.extensions.js"></script>
         <script src="js/Scripts/json2.js"></script>
         <script src="js/Scripts/moment.js"></script>
+        <script src="js/Scripts/iscroll.js"></script>
         <script src="js/ClientApp/app.js"></script>
         <script src="js/ClientApp/app.ui.js"></script>
         <script src="js/ClientApp/app.dataSource.js"></script>
@@ -72,62 +24,7 @@
         <script src="js/ClientApp/viewModel/articlePageVM.js"></script>
         <script src="js/ClientApp/jqm.PageHandlers.js"></script>
         <script src="js/ClientApp/horizontall.scroll.js"></script>
-        <script src="js/ClientApp/ko.extensions.js"></script>
-        <script src="js/Scripts/iscroll.js"></script>
-        
-        
-        <!--Article Page -->
-        <div data-role="page" id="articlePage" data-dom-cache="true" data-theme="c" >
-            <div data-role="header" data-position="fixed"  data-theme="b" data-tap-toggle="false">
-                <span style="text-align:center; display:block; height:36px;vertical-align: middle; padding-top:5px" 
-                        data-bind="click: showDefaultArticles">
-                    <img alt="MetroGreece Mobile App" 
-                        src="img/logo170.png" />
-                </span>
-               <a  data-icon="arrow-l" data-direction="reverse" data-role="button" data-rel="back" 
-                    data-bind="click: goBack">Πίσω</a>
-                <div id="AjaxLayoutCategories">                
-                    <ul data-role="listview" data-inset="false" data-bind="foreach: urbanit_MG.ui.categories, refreshListViewOnce: true">                    
-                        <li data-bind="css: { 'ui-btn-active myactive': urbanit_MG.ui.isCategorySelected($data.CategoryID) }, click: $parent.goToCategory">
-                            <a data-bind="text: $data.Name"></a>
-                        </li>
-                    </ul>
-                </div>
 
-            </div>
-            <div data-role="content">
-                <div id="ArticleDetail" class="article" data-bind="with: selectedArticle">
-                    <h3 class="header" data-bind="html: Title"></h3>
-                    <h4 data-bind="html: PublishDate"></h4>
-                    <div class="content">
-                        <img data-bind="attr: { src: 'http://www.metrogreece.gr' + ImageFile }" alt=""/>
-                        <span data-bind="html: ArticleText"></span>
-                    </div>
-                </div></br>
-                <div data-bind="visible: !hasInStorage()">
-                    <!-- ko ifnot: hasBeenRemovedFromFavorites -->
-                    <button data-mini="true" data-icon="star" data-bind="click: addToFavorites">Προσθήκη στα Αγαπημένα</button>
-                     <!-- /ko -->
-                    <!-- ko if: hasBeenRemovedFromFavorites -->
-                    <button data-mini="true" data-icon="star" data-bind="enable: false">Έγινε διαγραφή από τα Αγαπημένα</button>
-                     <!-- /ko -->
-                </div>
-                <div data-bind="visible: hasInStorage">
-                    <!-- ko ifnot: hasBeenAddedToFavorites -->
-                    <button data-mini="true" data-icon="star" data-bind="click: removefromFavorites">Διαγραφή από τα Αγαπημένα</button>
-                     <!-- /ko -->
-                    <!-- ko if: hasBeenAddedToFavorites -->
-                    <button data-mini="true" data-icon="star" data-bind="enable: false">Έγινε προσθήκη στα Αγαπημένα</button>
-                     <!-- /ko -->
-                </div>
-                <div id="sthisbtns" data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:13px" >
-                </div>
-            </div>
-            <div data-role="footer" data-theme="b" position="fixed" style="height:28px; font-size:14px;padding:0;margin:0;vertical-align:middle;text-align:center;height:100%">
-                <span>&copy; 2013 metrogreece.gr | All rights reserved</span>
-            </div>
-        </div>  
-       
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript">
             urbanit_MG.homePageUrl = "#mainPage";
@@ -210,5 +107,108 @@
                 });
             });
         </script>
+
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="mainPage" data-dom-cache="true" data-theme="c" >
+            <div data-role="header" data-position="fixed"  data-theme="b" data-tap-toggle="false">
+                <span style="text-align:center; display:block; height:36px;vertical-align: middle; padding-top:5px" 
+                        data-bind="click: showDefaultArticles">
+                    <img alt="MetroGreece Mobile App" 
+                        src="img/logo170.png" />
+                </span>
+                <div id="PageLayoutCategories">                
+                    <ul data-role="listview" data-inset="false" data-bind="foreach: urbanit_MG.ui.categories, refreshListViewOnce: true">                    
+                        <li data-bind="css: { 'ui-btn-active myactive': urbanit_MG.ui.isCategorySelected($data.CategoryID) }, click: $parent.goToCategory">
+                            <a data-bind="text: $data.Name"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div data-role="navbar">
+	                <ul>
+		                <li style="font-size:10px; text-align:left" ><a data-bind="css: { 'ui-btn-active ui-state-persist': selectedNavbarButton() === 1 }, click: function () { goToNavbar(1); }">Προτεινόμενα</a></li>
+		                <li><a data-bind="css: { 'ui-btn-active ui-state-persist': selectedNavbarButton() === 2 }, click: function () { goToNavbar(2); }">Τελευταία</a></li>
+                        <li><a class="ui-li-has-count" data-bind="css: { 'ui-btn-active ui-state-persist': selectedNavbarButton() === 3 }, click: function () { goToNavbar(3); }"><span style="padding-right: 25px;">Αγαπημένα</span><span class="ui-li-count ui-btn-up-c ui-btn-corner-all" style="float:right;right:0;" data-bind="text: urbanit_MG.ui.favoritesCount"></span></a></li>
+	                </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul id="ArticleList" data-role="listview" data-bind="foreach: articles, refreshListViewOnChange: articles">
+                    <li class="article">
+                        <a data-bind="click: function () { $parent.goToArticle($data) }">
+                            <h3 class="header" data-bind="html: Title"></h3>
+                            <div class="content">
+                                <img data-bind="attr: { src: 'http://www.metrogreece.gr' + ImageFile }" alt=""/>
+                                <span data-bind="html: Description"></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:13px" data-bind="visible: !urbanit_MG.ui.loadingData() && articles().length > 0 && pageIndex() < 10 && selectedNavbarButton() < 3" >
+                    <a style="float:left" data-bind="click: nextPage" data-icon="arrow-d" data-inline="false" data-role="button" data-theme="c">Παλαιότερα </a>
+                </div>
+                <div data-bind="visible: !urbanit_MG.ui.loadingData() && articles().length == 0">
+                    Δεν υπάρχουν άρθρα
+                </div>
+            </div>
+            <div data-role="footer" data-theme="b" position="fixed" style="height:28px; font-size:14px;padding:0;margin:0;vertical-align:middle;text-align:center;height:100%">
+                <span>&copy; 2013 metrogreece.gr | All rights reserved | v1.2</span>
+            </div>
+        </div>   
+        
+        <!--Article Page -->
+        <div data-role="page" id="articlePage" data-dom-cache="true" data-theme="c" >
+            <div data-role="header" data-position="fixed"  data-theme="b" data-tap-toggle="false">
+                <span style="text-align:center; display:block; height:36px;vertical-align: middle; padding-top:5px" 
+                        data-bind="click: showDefaultArticles">
+                    <img alt="MetroGreece Mobile App" 
+                        src="img/logo170.png" />
+                </span>
+               <a  data-icon="arrow-l" data-direction="reverse" data-role="button" data-rel="back" 
+                    data-bind="click: goBack">Πίσω</a>
+                <div id="AjaxLayoutCategories">                
+                    <ul data-role="listview" data-inset="false" data-bind="foreach: urbanit_MG.ui.categories, refreshListViewOnce: true">                    
+                        <li data-bind="css: { 'ui-btn-active myactive': urbanit_MG.ui.isCategorySelected($data.CategoryID) }, click: $parent.goToCategory">
+                            <a data-bind="text: $data.Name"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div data-role="content">
+                <div id="ArticleDetail" class="article" data-bind="with: selectedArticle">
+                    <h3 class="header" data-bind="html: Title"></h3>
+                    <h4 data-bind="html: PublishDate"></h4>
+                    <div class="content">
+                        <img data-bind="attr: { src: 'http://www.metrogreece.gr' + ImageFile }" alt=""/>
+                        <span data-bind="html: ArticleText"></span>
+                    </div>
+                </div></br>
+                <div data-bind="visible: !hasInStorage()">
+                    <!-- ko ifnot: hasBeenRemovedFromFavorites -->
+                    <button data-mini="true" data-icon="star" data-bind="click: addToFavorites">Προσθήκη στα Αγαπημένα</button>
+                     <!-- /ko -->
+                    <!-- ko if: hasBeenRemovedFromFavorites -->
+                    <button data-mini="true" data-icon="star" data-bind="enable: false">Έγινε διαγραφή από τα Αγαπημένα</button>
+                     <!-- /ko -->
+                </div>
+                <div data-bind="visible: hasInStorage">
+                    <!-- ko ifnot: hasBeenAddedToFavorites -->
+                    <button data-mini="true" data-icon="star" data-bind="click: removefromFavorites">Διαγραφή από τα Αγαπημένα</button>
+                     <!-- /ko -->
+                    <!-- ko if: hasBeenAddedToFavorites -->
+                    <button data-mini="true" data-icon="star" data-bind="enable: false">Έγινε προσθήκη στα Αγαπημένα</button>
+                     <!-- /ko -->
+                </div>
+                <div id="sthisbtns" data-role="controlgroup" data-type="horizontal" data-mini="true" style="padding-top:13px" >
+                </div>
+            </div>
+            <div data-role="footer" data-theme="b" position="fixed" style="height:28px; font-size:14px;padding:0;margin:0;vertical-align:middle;text-align:center;height:100%">
+                <span>&copy; 2013 metrogreece.gr | All rights reserved</span>
+            </div>
+        </div>  
+       
+
     </body>
 </html>
