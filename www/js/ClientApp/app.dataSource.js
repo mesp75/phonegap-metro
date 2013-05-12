@@ -109,7 +109,7 @@
             contentType: "application/json; charset=utf-8",
             url: crossUrl,
             data: params,
-            dataType: "json",
+            dataType: "jsonp",
             beforeSend: function ()
             {
                 appObj.ui.loadingData(true);
